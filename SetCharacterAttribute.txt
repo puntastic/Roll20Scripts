@@ -49,7 +49,14 @@ function SetAttr(characterName, attr, value)
         
     if(!isNaN(value))
     {
-        attribute.set("current", value);
+        if(value.charAt(0) == "+" || value.charAt(0) == "-")
+        {
+           attribute.set("current", Number(attribute.get("current")) + Number(value));
+        }
+        else
+        {
+            attribute.set("current", value);
+        }
     }
     else
     {
