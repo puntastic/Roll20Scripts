@@ -2,7 +2,8 @@ Roll20Scripts
 =============
 This repository contains my various scripts, written in javascript, to enhance my roll20 game mastering.
 
-These scripts are provided without license or warranty so feel free to use them in any way you like.
+Feel Free to use these scripts however you choose, but they are provide WITHOUT WARRENTY, if you choose to use them in your campeign
+they could very well go very, very wrong. You have been warned.
 
 All scripts are wrapped in try/catch blocks to prevent fatal errors from disabling all the custom scripts on the game's roll20 virtual machine.
 
