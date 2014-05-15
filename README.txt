@@ -11,7 +11,7 @@ All scripts are wrapped in try/catch blocks to prevent fatal errors from disabli
 	Usage
 		"!attr Ammo -- /me gun goes click"
 		"!attr Ammo max /me reloads"
-		"!attr HP -3 /me Casts from hitpoints"
+		"!attr HP -3"
 	Notes
 		Random values aren't implemented. However inline rolls should be able to be used in the 
 		message... but I have not tested it.
