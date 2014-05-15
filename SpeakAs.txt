@@ -1,11 +1,18 @@
 on("chat:message", function(msg)
 {
-    if(msg.type == "api" && msg.content.indexOf("!n") !== -1)
+    try
     {
-        var out = msg.content.replace("!n ", "");
-        var name = out.split(" ")[0];
-        
-        out = out.replace(name, "");
-        sendChat(msg.who, out.trim());
+        if(msg.type == "api" && msg.content.indexOf("!n") !== -1)
+        {
+            var out = msg.content.replace("!n ", "");
+            var name = out.split(" ")[0];
+            
+            out = out.replace(name, "");
+            sendChat(name, out.trim());
+        }
+    }
+    catch(ex)
+    {
+        sendChat("Debug", "Exception occurred: " + ex.message);
     }
 });

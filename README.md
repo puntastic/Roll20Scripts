@@ -4,6 +4,8 @@ This repository contains my various scripts, written in javascript, to enhance m
 
 These scripts are provided without license or warranty so feel free to use them in any way you like.
 
+All scripts are wrapped in try/catch blocks to prevent fatal errors from disabling all the custom scripts on the game's roll20 virtual machine.
+
 SpeakAs.txt 
 	usage '!n {name} {/me|/w}{message}'
 	

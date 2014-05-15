@@ -20,8 +20,6 @@ on("chat:message", function(msg) {
             catch(ex)
             {
                 sendChat("Debug", "Exception occurred: " + ex.message);
-                //if("lineNumber" in ex)
-                  //  sendChat("Debug", "LineNumber: " + ex.lineNumber)
             }
         }
     }

@@ -1,8 +1,15 @@
 on("chat:message", function(msg)
 {
-    if(msg.type == "whisper" && msg.target_name.charAt(0) == "_")
+    try
     {
-        sendChat(msg.who, "/me says something in " + msg.target_name.substr(1));
-        //var language = getObj("character",msg.target);
+        if(msg.type == "whisper" && msg.target_name.charAt(0) == "_")
+        {
+            sendChat(msg.who, "/me says something in " + msg.target_name.substr(1));
+            //var language = getObj("character",msg.target);
+        }
+    }
+    catch(ex)
+    {
+        sendChat("Debug", "Exception occurred: " + ex.message);
     }
 });
