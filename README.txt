@@ -10,7 +10,7 @@ All scripts are wrapped in try/catch blocks to prevent fatal errors from disabli
 !attr [attributeName] {++|--|max|[var]} [optionalMessage]
 	Usage
 		"!attr Ammo -- /me gun goes click"
-		"!attr Ammo max /me reloads"
+		"!attr Ammo max"
 		"!attr HP -3"
 	Notes
 		Random values aren't implemented. However inline rolls should be able to be used in the 
@@ -20,6 +20,8 @@ All scripts are wrapped in try/catch blocks to prevent fatal errors from disabli
 		updated on your token if the attribute is linked to said token.
 		
 		Case sensitive.
+		
+		[optionalMessage] will be output to the chat if the attribute hits zero
 
 !n [characterName] [message]
 	Usage
