@@ -1,0 +1,73 @@
+on("chat:message", function(msg) {
+    if(msg.type == "api" )
+    {
+         if(msg.content.indexOf("!attr") > -1)
+        {
+            try
+            {
+                var message = msg.content.replace("!attr", "").trim();
+                parts = message.split(" ");
+                
+                message = message.replace(parts[0], "");
+                message = message.replace(parts[1], "");
+                message = message.trim();
+                
+                if(SetAttr(msg.who, parts[0], parts[1]) && message.length > 0)
+                {
+                    sendChat(msg.who, message);
+                }
+            }
+            catch(ex)
+            {
+                sendChat("Debug", "Exception occurred: " + ex.message);
+                //if("lineNumber" in ex)
+                  //  sendChat("Debug", "LineNumber: " + ex.lineNumber)
+            }
+        }
+    }
+});
+
+function SetAttr(characterName, attr, value)
+{
+    var character = findObjs({ name: characterName, _type: "character"}, {caseInsensitive: true})[0];
+      
+    if(typeof character === 'undefined')
+    {
+        sendChat("Debug", "Character of \"" + characterName + '" not found.');
+        return false;
+    }
+    
+    var attribute = findObjs({
+        _type: 'attribute',
+        _characterid: character.get("_id"),
+        name: attr
+    })[0];
+    
+    if(typeof attribute === 'undefined')
+    {
+        sendChat("Debug", "No attribute of \"" + attr + "\" found for character \"" + characterName + '".');
+        return false;
+    }
+        
+    if(!isNaN(value))
+    {
+        attribute.set("current", value);
+    }
+    else
+    {
+        switch(value)
+        {
+            case "++":
+                attribute.set("current", attribute.get("current") + 1);
+                break;
+            case "--":
+                attribute.set("current", attribute.get("current") - 1);
+                break;
+            case "max":
+                attribute.set("current", attribute.get("max"));
+                break;
+        }
+    }
+    
+    return attribute.get("current") == 0;
+}
