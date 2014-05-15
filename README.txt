@@ -7,6 +7,7 @@ they could very well go very, very wrong. You have been warned.
 
 All scripts are wrapped in try/catch blocks to prevent fatal errors from disabling all the custom scripts on the game's roll20 virtual machine.
 
+SetCharacterAttribute.txt
 !attr [attributeName] {++|--|max|[var]} [optionalMessage]
 	Usage
 		"!attr Ammo -- /me gun goes click"
@@ -23,12 +24,14 @@ All scripts are wrapped in try/catch blocks to prevent fatal errors from disabli
 		
 		[optionalMessage] will be output to the chat if the attribute hits zero
 
+SpeakAs.txt
 !n [characterName] [message]
 	Usage
 		"!n Charlie /me waves his hands ecstatically."
 	Notes
 		GM Only please, players can use it, yes, but don't.
 
+SpeakALanguage.txt
 /w [language] [words]
 	Usage
 		"/w _undercommon What?!"
